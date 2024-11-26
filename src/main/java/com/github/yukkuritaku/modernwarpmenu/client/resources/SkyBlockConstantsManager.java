@@ -79,11 +79,10 @@ public class SkyBlockConstantsManager implements IdentifiableResourceReloadListe
     }
 
     protected void apply(SkyBlockConstants object) {
-        for (var list : object.menuMatchingMap().values()) {
+        /*for (var list : object.menuMatchingMap().values()) {
+            LOGGER.info("class: {}", list.getClass().getSimpleName());
             //list.sort(Comparator.comparing(ItemMatchCondition::inventorySlot));
-        }
-        LOGGER.info("values: {}", object.menuMatchingMap().values());
-        LOGGER.info("class {}", object.menuMatchingMap().values());
+        }*/
         this.skyBlockConstants = object;
     }
 

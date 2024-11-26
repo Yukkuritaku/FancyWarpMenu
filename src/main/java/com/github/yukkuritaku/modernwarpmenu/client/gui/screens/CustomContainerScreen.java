@@ -8,6 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.events.GuiEventListener;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.ContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -63,6 +64,14 @@ public abstract class CustomContainerScreen extends ContainerScreen {
     protected abstract boolean customUIKeyPressed(int keyCode, int scanCode, int modifiers);
     protected abstract boolean customUIMouseClicked(double mouseX, double mouseY, int button);
 
+    /**
+     * This method is compatibility for Roughly Enough Items/Architectury
+     * Inject at runtime, see {@link com.github.yukkuritaku.modernwarpmenu.mixin.compat.architectury.CustomContainerScreenMixin}
+     */
+    private void renderArchitecturyContainerBackground(AbstractContainerScreen<?> screen,
+                                                       GuiGraphics guiGraphics, int mouseX, int mouseY,
+                                                       float partialTick
+                                                       ){}
 
     protected void setCustomUIState(boolean renderCustomUI, boolean customUIInteractionEnabled) {
         this.renderCustomUI = renderCustomUI;
@@ -85,8 +94,9 @@ public abstract class CustomContainerScreen extends ContainerScreen {
 
     @Override
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
-        if (this.renderCustomUI)
+        if (this.renderCustomUI) {
             renderCustomUI(guiGraphics, mouseX, mouseY, partialTick);
+        }
         else
             super.render(guiGraphics, mouseX, mouseY, partialTick);
     }
@@ -104,6 +114,7 @@ public abstract class CustomContainerScreen extends ContainerScreen {
             }else {
                 this.renderTransparentBackground(guiGraphics);
             }
+            this.renderArchitecturyContainerBackground(this, guiGraphics, mouseX, mouseY, partialTick);
         }else {
             super.renderBg(guiGraphics, partialTick, mouseX, mouseY);
         }

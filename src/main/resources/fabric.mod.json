@@ -29,6 +29,7 @@
 	"mixins": [
 		"modernwarpmenu.mixins.json"
 	],
+	"plugin": "com.github.yukkuritaku.modernwarpmenu.ModernWarpMenuMixinPlugin",
 	"accessWidener": "modernwarpmenu.accesswidener",
 	"depends": {
 		"fabricloader": ">=0.16.9",

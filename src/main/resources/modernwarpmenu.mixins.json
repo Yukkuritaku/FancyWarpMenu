@@ -1,12 +1,13 @@
 {
-	"required": true,
-	"package": "com.github.yukkuritaku.modernwarpmenu.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"client": [
-		"KeyboardHandlerMixin",
-		"ScreenAccessor"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "com.github.yukkuritaku.modernwarpmenu.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "KeyboardHandlerMixin",
+    "ScreenAccessor",
+    "compat.architectury.CustomContainerScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }
