@@ -35,7 +35,6 @@ public class WarpMenuListener {
         ClientTickEvents.START_CLIENT_TICK.register(client -> {
             if (client.screen == null){
                 if (ModernWarpMenuState.isOpenConfigMenuRequested()){
-                    //TODO Config
                     client.setScreen(SettingsManager.createSettingsScreen(null));
                     ModernWarpMenuState.setOpenConfigMenuRequested(false);
                 }
