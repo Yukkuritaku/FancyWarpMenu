@@ -31,8 +31,8 @@
   "modernwarpmenu.config.general.showRegularWarpMenuButton": "Show Regular Warp Menu Button",
   "modernwarpmenu.config.general.showRegularWarpMenuButton.tooltip": "Show the button to access the regular warp menu",
 
-  "modernwarpmenu.config.debug.developerModeEnabled": "Enable Developer Mode",
-  "modernwarpmenu.config.debug.developerModeEnabled.tooltip": "Enable all developer features",
+  "modernwarpmenu.config.debug.debugModeEnabled": "Enable Developer Mode",
+  "modernwarpmenu.config.debug.debugModeEnabled.tooltip": "Enable all developer features",
   "modernwarpmenu.config.debug.showDebugOverlay": "Show Debug Overlay",
   "modernwarpmenu.config.debug.showDebugOverlay.tooltip": "Show an overlay with coordinate values and button borders over the modern warp menu. Press TAB while the warp menu is open to toggle.",
   "modernwarpmenu.config.debug.drawBorders": "Draw Button Borders",

@@ -47,8 +47,8 @@ public abstract class CustomContainerButton extends Button {
     /*@Override
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
         if (this.visible) {
-            this.isHovered = guiGraphics.containsPointInScissor(mouseX, mouseY)
-                    && mouseX >= this.getX()
+            this.isHovered =
+                    mouseX >= this.getX()
                     && mouseY >= this.getY()
                     && mouseX < this.getX() + this.getWidth()
                     && mouseY < this.getY() + this.getHeight();

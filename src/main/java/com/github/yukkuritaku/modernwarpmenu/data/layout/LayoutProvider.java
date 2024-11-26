@@ -163,7 +163,7 @@ public class LayoutProvider implements DataProvider {
                 Layout.EMPTY,
                 List.of(
                         new Island("Rift", new LayoutTexture(ResourceLocation.fromNamespaceAndPath(
-                                ModernWarpMenu.MOD_ID, "textures/gui/rift.png"), 974, 1051),
+                                ModernWarpMenu.MOD_ID, "textures/gui/islands/rift.png"), 974, 1051),
                                 21, 6, 0, 0.35f,
                                 List.of(
                                         new Warp(18, 25, "Wizard Tower", 10),

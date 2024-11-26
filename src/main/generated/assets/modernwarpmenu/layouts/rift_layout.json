@@ -16,13 +16,13 @@
       "grid_y": 6,
       "hover_effect_texture": {
         "height": 1051,
-        "location": "modernwarpmenu:textures/gui/rift.png",
+        "location": "modernwarpmenu:textures/gui/islands/rift.png",
         "width": 974
       },
       "name": "Rift",
       "texture": {
         "height": 1051,
-        "location": "modernwarpmenu:textures/gui/rift.png",
+        "location": "modernwarpmenu:textures/gui/islands/rift.png",
         "width": 974
       },
       "warp_list": [

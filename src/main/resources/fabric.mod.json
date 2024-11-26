@@ -3,14 +3,18 @@
 	"id": "modernwarpmenu",
 	"version": "${version}",
 	"name": "Modern Warp Menu",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A recreation of the fancy warp menu from SkyblockAddons, Ported to modern minecraft.",
 	"authors": [
-		"Yukkuritaku (Port)"
+		"Yukkuritaku (Port)",
+		"TirelessTraveler (Original)",
+		"Nea89 (Original Credits)",
+		"Schlaumeyer (Original Credits)",
+		"Fandom SkyBlock Wiki (Original Credits)"
 	],
-
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/Yukkuritaku",
+		"sources": "https://github.com/Yukkuritaku/ModernWarpMenu",
+		"issues": "https://github.com/Yukkuritaku/ModernWarpMenu/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/modernwarpmenu/icon.png",
@@ -39,5 +43,10 @@
 	},
 	"suggests": {
 		"another-mod": "*"
+	},
+	"custom": {
+		"modmenu": {
+
+		}
 	}
 }

@@ -1,4 +1,6 @@
 {
+  "modmenu.descriptionTranslation.modernwarpmenu": "SkyblockAddonsのfancy warp menuをリメイク+最新バージョンに移植したModです。",
+
   "modernwarpmenu.config.categories.general": "一般",
   "modernwarpmenu.config.categories.general.tooltip": "Modern Warp Menuの機能をカスタマイズできる設定です",
   "modernwarpmenu.config.categories.debug": "開発者用設定",
@@ -31,8 +33,8 @@
   "modernwarpmenu.config.general.showRegularWarpMenuButton": "通常のワープ画面に切り替えれるボタンを表示",
   "modernwarpmenu.config.general.showRegularWarpMenuButton.tooltip": "通常のワープ画面にアクセスできるボタンを表示します。",
 
-  "modernwarpmenu.config.debug.developerModeEnabled": "全ての開発者用機能を有効化",
-  "modernwarpmenu.config.debug.developerModeEnabled.tooltip": "開発者用の機能を全部有効化します。",
+  "modernwarpmenu.config.debug.debugModeEnabled": "全ての開発者用機能を有効化",
+  "modernwarpmenu.config.debug.debugModeEnabled.tooltip": "開発者用の機能を全部有効化します。",
   "modernwarpmenu.config.debug.showDebugOverlay": "デバッグオーバーレイを表示",
   "modernwarpmenu.config.debug.showDebugOverlay.tooltip": "Modern Warp Menuに座標とボタンの境界線を表示します。画面を開いている時にTABキーを押すと切り替えできます。",
   "modernwarpmenu.config.debug.drawBorders": "ボタンの境界線を表示",

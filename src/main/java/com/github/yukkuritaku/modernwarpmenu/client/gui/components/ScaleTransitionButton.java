@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ARGB;
+import net.minecraft.util.Mth;
 import org.joml.Matrix4f;
 
 import java.awt.*;
@@ -40,8 +41,8 @@ public class ScaleTransitionButton extends CustomContainerButton{
         this.isHovered =
                         mouseX >= this.scaledXPosition &&
                         mouseY >= this.scaledYPosition &&
-                        mouseX < this.scaledXPosition + this.scaledWidth &&
-                        mouseY < this.scaledYPosition + this.scaledHeight;
+                        mouseX <= this.scaledXPosition + this.scaledWidth &&
+                        mouseY <= this.scaledYPosition + this.scaledHeight;
     }
 
     /**
@@ -112,24 +113,42 @@ public class ScaleTransitionButton extends CustomContainerButton{
      * @param xOffset x-offset from button left
      * @param yOffset y-offset from button top
      */
-    public void renderMessageString(GuiGraphics guiGraphics, float xOffset, float yOffset) {
+    public void renderMessageString(GuiGraphics guiGraphics, float xOffset, float yOffset, Color textColor) {
+
+        String[] lines = this.getMessage().getString().split("\n");
         PoseStack stack = guiGraphics.pose();
-        int color;
+        Color color;
         if (this.isHovered){
-            color = ARGB.colorFromFloat(HOVERED_BRIGHTNESS, HOVERED_BRIGHTNESS, HOVERED_BRIGHTNESS, 1.0f);
+            color = new Color((int) (textColor.getRed() * HOVERED_BRIGHTNESS),
+                    (int) (textColor.getGreen() * HOVERED_BRIGHTNESS),
+                    (int) (textColor.getBlue() * HOVERED_BRIGHTNESS), 255);
         }else {
-            color = ARGB.colorFromFloat(UN_HOVERED_BRIGHTNESS, UN_HOVERED_BRIGHTNESS, UN_HOVERED_BRIGHTNESS, 1.0f);
+            color = new Color(
+                    (int) (textColor.getRed() * UN_HOVERED_BRIGHTNESS),
+                    (int) (textColor.getGreen() * UN_HOVERED_BRIGHTNESS),
+                    (int) (textColor.getBlue() * UN_HOVERED_BRIGHTNESS), 255);
         }
         stack.pushPose();
         stack.translate(this.scaledXPosition + xOffset, this.scaledYPosition + yOffset, this.getZLevel() + 1);
         stack.scale(this.transition.getCurrentScale(), this.transition.getCurrentScale(), 1);
-        guiGraphics.drawCenteredString(Minecraft.getInstance().font, this.getMessage(), 0, Minecraft.getInstance().font.lineHeight, color);
+        for (int i = 0; i < lines.length; i++) {
+            guiGraphics.drawCenteredString(Minecraft.getInstance().font, lines[i], 0, Minecraft.getInstance().font.lineHeight * i, color.getRGB());
+        }
         stack.popPose();
     }
 
     protected void renderForegroundLayer(GuiGraphics guiGraphics, ResourceLocation foregroundTexture){
         if (foregroundTexture != null)
             renderButtonTexture(guiGraphics, foregroundTexture);
+    }
+
+
+    @Override
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        if (this.visible) {
+            this.renderWidget(guiGraphics, mouseX, mouseY, partialTick);
+            this.tooltip.refreshTooltipForNextRenderPass(this.isHovered(), this.isFocused(), this.getRectangle());
+        }
     }
 
     @Override
@@ -152,8 +171,8 @@ public class ScaleTransitionButton extends CustomContainerButton{
         return this.active && this.visible &&
                 mouseX >= this.scaledXPosition &&
                 mouseY >= this.scaledYPosition &&
-                mouseX < this.scaledXPosition + this.scaledWidth &&
-                mouseY < this.scaledYPosition + this.scaledHeight;
+                mouseX <= this.scaledXPosition + this.scaledWidth &&
+                mouseY <= this.scaledYPosition + this.scaledHeight;
     }
 
     @Override
@@ -161,60 +180,7 @@ public class ScaleTransitionButton extends CustomContainerButton{
         return this.active && this.visible &&
                 mouseX >= this.scaledXPosition &&
                 mouseY >= this.scaledYPosition &&
-                mouseX < this.scaledXPosition + this.scaledWidth &&
-                mouseY < this.scaledYPosition + this.scaledHeight;
-    }
-
-    @Override
-    public int getX() {
-        return (int) this.scaledXPosition;
-    }
-
-    @Override
-    public void setX(int x) {
-        this.scaledXPosition = x;
-    }
-
-    @Override
-    public int getY() {
-        return (int) this.scaledYPosition;
-    }
-    @Override
-    public void setY(int y) {
-        this.scaledYPosition = y;
-    }
-
-    @Override
-    public int getWidth() {
-        return (int) this.scaledWidth;
-    }
-    @Override
-    public void setWidth(int width) {
-        this.scaledWidth = width;
-    }
-    @Override
-    public int getHeight() {
-        return (int) this.scaledHeight;
-    }
-
-    @Override
-    public void setHeight(int height) {
-        this.scaledHeight = height;
-    }
-
-    @Override
-    public void setSize(int width, int height) {
-        this.scaledWidth = width;
-        this.scaledHeight = height;
-    }
-
-    @Override
-    public int getRight() {
-        return this.getX() + this.getWidth();
-    }
-
-    @Override
-    public int getBottom() {
-        return this.getY() + this.getHeight();
+                mouseX <= this.scaledXPosition + this.scaledWidth &&
+                mouseY <= this.scaledYPosition + this.scaledHeight;
     }
 }

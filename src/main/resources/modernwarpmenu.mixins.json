@@ -5,9 +5,12 @@
   "client": [
     "KeyboardHandlerMixin",
     "ScreenAccessor",
-    "compat.architectury.CustomContainerScreenMixin"
+    "compat.rei.RoughlyEnoughItemsCoreClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-	}
+  },
+  "mixins": [
+    "compat.skyblocker.ChestValueMixin"
+  ]
 }

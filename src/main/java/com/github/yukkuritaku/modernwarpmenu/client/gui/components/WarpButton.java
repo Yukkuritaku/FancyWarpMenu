@@ -7,6 +7,9 @@ import com.github.yukkuritaku.modernwarpmenu.data.layout.Warp;
 import com.github.yukkuritaku.modernwarpmenu.data.settings.SettingsManager;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.ARGB;
+
+import java.awt.*;
 
 public class WarpButton extends ScaleTransitionButton{
     /** The button of the island this warp belongs to */
@@ -49,8 +52,8 @@ public class WarpButton extends ScaleTransitionButton{
                 renderForegroundLayer(guiGraphics, this.foregroundTexture.location());
             }
             if (this.drawWarpLabel && (!SettingsManager.get().general.hideWarpLabelsUntilIslandHovered ||
-                    this.parent.isMouseOver(mouseX, mouseY))) {
-                renderMessageString(guiGraphics, this.buttonRectangle.getWidth() / 2F, this.buttonRectangle.getHeight());
+                    this.parent.isHoveredOrFocused())) {
+                renderMessageString(guiGraphics, this.buttonRectangle.getWidth() / 2F, this.buttonRectangle.getHeight(), Color.WHITE);
             }
             this.setZLevel(originalZ);
         }

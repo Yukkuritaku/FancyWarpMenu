@@ -25,6 +25,18 @@ repositories {
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
 
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+		filter {
+			includeGroup "maven.modrinth"
+		}
+	}
+
 	maven {
 		name = "Xander Maven"
 		url = "https://maven.isxander.dev/releases"
@@ -38,6 +50,7 @@ repositories {
 		url = 'https://maven.parchmentmc.org'
 	}
 	maven { url "https://maven.shedaniel.me" }
+
 
 	//conditional-mixin https://github.com/Fallen-Breath/conditional-mixin
 	maven { url 'https://maven.fallenbreath.me/releases' }
@@ -59,7 +72,8 @@ dependencies {
 	modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
 	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
-	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
+	modCompileOnly "maven.modrinth:skyblocker-liap:1.23.0-beta.1+1.21.3"
 	include(modImplementation("me.fallenbreath:conditional-mixin-fabric:0.6.3"))
 
 	

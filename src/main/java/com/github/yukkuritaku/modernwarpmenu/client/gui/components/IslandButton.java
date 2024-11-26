@@ -7,12 +7,16 @@ import com.github.yukkuritaku.modernwarpmenu.data.layout.Island;
 import com.github.yukkuritaku.modernwarpmenu.data.layout.Warp;
 import com.github.yukkuritaku.modernwarpmenu.data.settings.SettingsManager;
 import com.mojang.blaze3d.platform.Window;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.ARGB;
 
+import java.awt.*;
+
 public class IslandButton extends ScaleTransitionButton{
 
+    private static final Color TEXT_GREEN_COLOR = new Color(5635925);
     private static final float HOVERED_SCALE = 1.1F;
     private static final long SCALE_TRANSITION_DURATION = 400;
     public final Island island;
@@ -63,7 +67,7 @@ public class IslandButton extends ScaleTransitionButton{
                 renderForegroundLayer(guiGraphics, this.foregroundTexture.location());
             }
             if (SettingsManager.get().general.showIslandLabels) {
-                renderMessageString(guiGraphics, this.scaledWidth / 2f, this.scaledHeight);
+                renderMessageString(guiGraphics, this.scaledWidth / 2f, this.scaledHeight, TEXT_GREEN_COLOR);
             }
             if (SettingsManager.get().debug.debugModeEnabled && SettingsManager.get().debug.drawBorders) {
                 renderBorder(guiGraphics, ARGB.white(1.0f));

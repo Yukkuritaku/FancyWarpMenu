@@ -38,8 +38,8 @@ public class GeneralCategory {
                         .controller(option -> BooleanControllerBuilder.create(option).yesNoFormatter().coloured(true))
                         .build())
                 .option(Option.<Boolean>createBuilder()
-                        .name(Component.translatable("modernwarpmenu.config.general.hideWarpLabelsUntilIslandHovered"))
-                        .description(OptionDescription.of(Component.translatable("modernwarpmenu.config.general.hideWarpLabelsUntilIslandHovered.tooltip")))
+                        .name(Component.translatable("modernwarpmenu.config.general.hideWarpLabelForIslandsWithOneWarp"))
+                        .description(OptionDescription.of(Component.translatable("modernwarpmenu.config.general.hideWarpLabelForIslandsWithOneWarp.tooltip")))
                         .binding(defaults.general.hideWarpLabelForIslandsWithOneWarp,
                                 () -> config.general.hideWarpLabelForIslandsWithOneWarp,
                                 value -> config.general.hideWarpLabelForIslandsWithOneWarp = value)

@@ -67,6 +67,7 @@ public class ModernWarpScreen extends CustomContainerScreen{
 
     private RuntimeException guiInitException;
     private Component warpFailMessage;
+    private Component originalTitle;
     protected long warpFailCoolDownExpiryTime;
     private long warpFailTooltipExpiryTime;
 
@@ -84,6 +85,7 @@ public class ModernWarpScreen extends CustomContainerScreen{
             this.inventoryListener = new InventoryChangeListener(new ChestItemChangeCallback(this));
             this.chestInventory.addListener(this.inventoryListener);
         }
+        this.originalTitle =  Component.literal(warpMenu.getDisplayName());
     }
 
     public ScaledGrid getScaledGrid(){
@@ -190,8 +192,7 @@ public class ModernWarpScreen extends CustomContainerScreen{
             Slot slotToClick = this.menu.slots.get(slotIndex);
 
             if (slotToClick.hasItem()) {
-                //mc.thePlayer.inventory.getItemStack() == null
-                if (this.menu.slots.isEmpty()) {
+                if (this.menu.getCarried().isEmpty()) {
                     // Left click no shift
                     slotClicked(this.menu.slots.get(slotIndex), slotIndex,
                             GLFW.GLFW_MOUSE_BUTTON_LEFT, ClickType.PICKUP);
@@ -362,7 +363,7 @@ public class ModernWarpScreen extends CustomContainerScreen{
              Don't send a C0EPacketClickWindow when clicking the config button while the custom UI is disabled
              A null check is required here as it's possible for clicks to occur before the button is initialized.
              */
-            if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT && this.configButton != null && this.configButton.isMouseOver(mouseX, mouseY)) {
+            if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT && this.configButton != null && this.configButton.isHoveredOrFocused()) {
                 return this.configButton.mouseClicked(mouseX, mouseY, button);
             } else {
                 return super.mouseClicked(mouseX, mouseY, button);
@@ -401,7 +402,7 @@ public class ModernWarpScreen extends CustomContainerScreen{
         for (GuiEventListener listener : this.children()) {
             if (listener instanceof IslandButton islandButton) {
                 islandButton.calculateHoverState(mouseX, mouseY);
-                if (islandButton.isMouseOver(mouseX, mouseY)) {
+                if (islandButton.isHoveredOrFocused()) {
                     hoveredButtons.add(islandButton);
                 }
             }
@@ -442,7 +443,7 @@ public class ModernWarpScreen extends CustomContainerScreen{
             if (!hasShiftDown()) {
                 for (GuiEventListener button : this.children()) {
                     // Draw island button coordinate tooltips, draw last to prevent clipping
-                    if (button instanceof IslandButton islandBtn && button.isMouseOver(mouseX, mouseY)) {
+                    if (button instanceof IslandButton islandBtn && islandBtn.isHoveredOrFocused()) {
                         debugMessages.add(islandBtn.getMessage().copy().withStyle(ChatFormatting.GREEN));
                         nearestX = islandBtn.scaledGrid.findNearestGridX(mouseX);
                         nearestY = islandBtn.scaledGrid.findNearestGridY(mouseY);
@@ -464,6 +465,13 @@ public class ModernWarpScreen extends CustomContainerScreen{
             }
             guiGraphics.pose().popPose();
         }
+    }
+
+    @Override
+    protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+        guiGraphics.drawString(this.font, this.originalTitle, this.titleLabelX, this.titleLabelY, 4210752, false);
+        super.renderLabels(guiGraphics, mouseX, mouseY);
+
     }
 
     @Override
@@ -495,7 +503,6 @@ public class ModernWarpScreen extends CustomContainerScreen{
             for (GuiEventListener listener : this.children()) {
                 if (listener instanceof CustomContainerButton) {
                     if (listener.mouseClicked(mouseX, mouseY, button)) {
-                        LOGGER.info("Clicked: {}", listener.getClass());
                         break;
                     }
                 }

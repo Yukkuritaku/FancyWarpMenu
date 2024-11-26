@@ -64,15 +64,6 @@ public abstract class CustomContainerScreen extends ContainerScreen {
     protected abstract boolean customUIKeyPressed(int keyCode, int scanCode, int modifiers);
     protected abstract boolean customUIMouseClicked(double mouseX, double mouseY, int button);
 
-    /**
-     * This method is compatibility for Roughly Enough Items/Architectury
-     * Inject at runtime, see {@link com.github.yukkuritaku.modernwarpmenu.mixin.compat.architectury.CustomContainerScreenMixin}
-     */
-    private void renderArchitecturyContainerBackground(AbstractContainerScreen<?> screen,
-                                                       GuiGraphics guiGraphics, int mouseX, int mouseY,
-                                                       float partialTick
-                                                       ){}
-
     protected void setCustomUIState(boolean renderCustomUI, boolean customUIInteractionEnabled) {
         this.renderCustomUI = renderCustomUI;
         this.customUIInteractionEnabled = customUIInteractionEnabled;
@@ -114,7 +105,6 @@ public abstract class CustomContainerScreen extends ContainerScreen {
             }else {
                 this.renderTransparentBackground(guiGraphics);
             }
-            this.renderArchitecturyContainerBackground(this, guiGraphics, mouseX, mouseY, partialTick);
         }else {
             super.renderBg(guiGraphics, partialTick, mouseX, mouseY);
         }

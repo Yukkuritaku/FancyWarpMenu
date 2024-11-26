@@ -11,7 +11,7 @@ public enum Menu implements StringRepresentable {
     NONE("none", ""),
     SKYBLOCK_MENU("skyblock_menu", "SkyBlock Menu"),
     FAST_TRAVEL("fast_travel", "Fast Travel"),
-    PORHTAL("porhtal", "Porthal");
+    PORHTAL("porhtal", "Porhtal");
 
     public static final StringRepresentable.EnumCodec<Menu> CODEC = StringRepresentable.fromEnum(Menu::values);
 
