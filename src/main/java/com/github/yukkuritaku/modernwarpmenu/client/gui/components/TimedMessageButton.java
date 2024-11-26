@@ -13,9 +13,6 @@ public class TimedMessageButton extends Button {
     public TimedMessageButton(int x, int y, Component message, OnPress onPress, CreateNarration createNarration) {
         super(x, y, 0, 0, message, onPress, createNarration);
     }
-    protected TimedMessageButton(int x, int y, int width, int height, net.minecraft.network.chat.Component message, OnPress onPress, CreateNarration createNarration) {
-        super(x, y, width, height, message, onPress, createNarration);
-    }
 
 
     /**

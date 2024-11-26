@@ -1,12 +1,10 @@
 package com.github.yukkuritaku.modernwarpmenu.data.layout;
 
-import com.github.yukkuritaku.modernwarpmenu.ModernWarpMenu;
 import com.github.yukkuritaku.modernwarpmenu.data.layout.texture.LayoutTexture;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.resources.ResourceLocation;
 
 public record WarpIcon(LayoutTexture texture,
                        LayoutTexture hoverEffectTexture,

@@ -48,18 +48,4 @@ public record WarpCommandVariant(String command, WarpCommandType type) {
             return this.name;
         }
     }
-
-    public static void validateWarpCommandVariant(WarpCommandVariant warpCommandVariant) {
-        if (warpCommandVariant == null) {
-            throw new NullPointerException("Warp command variant cannot be null");
-        }
-
-        if (warpCommandVariant.command == null) {
-            throw new NullPointerException("Warp command variant's command cannot be null");
-        }
-
-        if (warpCommandVariant.type == null) {
-            throw new NullPointerException("Warp command variant's command type cannot be null");
-        }
-    }
 }

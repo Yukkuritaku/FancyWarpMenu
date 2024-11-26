@@ -11,15 +11,14 @@ import com.google.gson.JsonParseException;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.JsonOps;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
+import net.minecraft.CrashReport;
+import net.minecraft.CrashReportCategory;
+import net.minecraft.ReportedException;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.resources.PreparableReloadListener;
 import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.server.packs.resources.SimplePreparableReloadListener;
-import net.minecraft.util.profiling.ProfilerFiller;
 import org.slf4j.Logger;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.Comparator;
@@ -42,12 +41,21 @@ public class SkyBlockConstantsManager implements IdentifiableResourceReloadListe
         return skyBlockConstants;
     }
 
+    private static void handleLoadException(Resource resource, ResourceLocation location, Exception e) {
+        CrashReport crashReport = new CrashReport("Your Modern Warp Menu resource pack may be outdated", e);
+        CrashReportCategory resourceCategory = crashReport.addCategory("Resource");
+        CrashReportCategory resourcePackCategory = crashReport.addCategory("Resource Pack");
+        resourceCategory.setDetail("Path", location.toString());
+        resourcePackCategory.setDetail("Name", resource.source().location().title().getString());
+        throw new ReportedException(crashReport);
+    }
+
     private static SkyBlockConstants loadSkyBlockConstants(Resource resource) {
         try (Reader reader = resource.openAsReader()) {
             JsonElement jsonElement = GSON.fromJson(reader, JsonElement.class);
             return SkyBlockConstants.CODEC.codec().parse(JsonOps.INSTANCE, jsonElement).getOrThrow(JsonParseException::new);
         } catch (Exception e) {
-            LOGGER.warn("Unable to load SkyBlockConstants '{}' in {} in resourcepack: '{}'", SkyBlockConstantsManager.SKY_BLOCK_CONSTANTS_LOCATION, "skyblockconstants.json", resource.sourcePackId(), e);
+            handleLoadException(resource, SKY_BLOCK_CONSTANTS_LOCATION, e);
         }
         return new SkyBlockConstants(
                 Map.of(),
@@ -74,6 +82,7 @@ public class SkyBlockConstantsManager implements IdentifiableResourceReloadListe
         for (var list : object.menuMatchingMap().values()) {
             //list.sort(Comparator.comparing(ItemMatchCondition::inventorySlot));
         }
+        LOGGER.info("values: {}", object.menuMatchingMap().values());
         LOGGER.info("class {}", object.menuMatchingMap().values());
         this.skyBlockConstants = object;
     }

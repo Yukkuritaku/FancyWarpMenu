@@ -5,14 +5,10 @@ import com.github.yukkuritaku.modernwarpmenu.client.gui.screens.transition.Scale
 import com.github.yukkuritaku.modernwarpmenu.data.layout.Island;
 import com.github.yukkuritaku.modernwarpmenu.data.layout.Warp;
 import com.github.yukkuritaku.modernwarpmenu.data.settings.SettingsManager;
-import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
-import org.slf4j.Logger;
 
 public class WarpButton extends ScaleTransitionButton{
-
-    private static final Logger LOGGER = LogUtils.getLogger();
     /** The button of the island this warp belongs to */
     private final IslandButton parent;
     private final Warp warp;

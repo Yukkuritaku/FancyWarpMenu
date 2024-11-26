@@ -3,6 +3,7 @@ package com.github.yukkuritaku.modernwarpmenu.data.settings;
 import com.github.yukkuritaku.modernwarpmenu.ModernWarpMenu;
 import com.github.yukkuritaku.modernwarpmenu.data.settings.categories.DebugCategory;
 import com.github.yukkuritaku.modernwarpmenu.data.settings.categories.GeneralCategory;
+import com.github.yukkuritaku.modernwarpmenu.state.EnvironmentDetails;
 import com.google.gson.FieldNamingPolicy;
 import dev.isxander.yacl3.api.YetAnotherConfigLib;
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
@@ -41,6 +42,9 @@ public class SettingsManager {
             throw new IllegalCallerException("Called init from wrong class!");
         }
         HANDLER.load();
+        if (EnvironmentDetails.isDevelopmentEnvironment()) {
+            get().debug.debugModeEnabled = true;
+        }
     }
 
     public static Screen createSettingsScreen(Screen parent){

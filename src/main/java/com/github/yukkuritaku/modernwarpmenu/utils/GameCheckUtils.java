@@ -53,7 +53,7 @@ public class GameCheckUtils {
                 if (Minecraft.getInstance().level != null) {
                     Scoreboard sb = Minecraft.getInstance().level.getScoreboard();
                     // SkyBlock sidebar objective
-                    Objective scores = sb.getDisplayObjective(DisplaySlot.SIDEBAR);
+                   // Objective scores = sb.getDisplayObjective(DisplaySlot.SIDEBAR);
 
                     // The date is always near the top (highest score) so we iterate backwards.
                     for (ScoreHolder holder : sb.getTrackedPlayers()) {

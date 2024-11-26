@@ -18,9 +18,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.ContainerScreen;
 import org.slf4j.Logger;
 
+import java.util.Objects;
+
 public class WarpMenuListener {
 
-    private static final Logger LOGGER = LogUtils.getLogger();
     /** The minimum time in milliseconds after a hotkey press before the player can use the hotkey again*/
     private static final int HOTKEY_PRESS_DELAY = 2000;
 
@@ -54,9 +55,9 @@ public class WarpMenuListener {
             if (GameState.isOnSkyBlock() && screen instanceof ContainerScreen containerScreen){
                 Menu menu = GameCheckUtils.determineOpenMenu(containerScreen.getTitle());
                 if (menu == Menu.FAST_TRAVEL){
-                    minecraft.setScreen(new FastTravelScreen(containerScreen.getMenu(), minecraft.player.getInventory(), ModernWarpMenuState.getOverworldLayout()));
+                    minecraft.setScreen(new FastTravelScreen(containerScreen.getMenu(), Objects.requireNonNull(minecraft.player).getInventory(), ModernWarpMenuState.getOverworldLayout()));
                 }else if (menu == Menu.PORHTAL){
-                    minecraft.setScreen(new RiftFastTravelScreen(containerScreen.getMenu(), minecraft.player.getInventory(), ModernWarpMenuState.getRiftLayout()));
+                    minecraft.setScreen(new RiftFastTravelScreen(containerScreen.getMenu(), Objects.requireNonNull(minecraft.player).getInventory(), ModernWarpMenuState.getRiftLayout()));
                 }
             }
         });

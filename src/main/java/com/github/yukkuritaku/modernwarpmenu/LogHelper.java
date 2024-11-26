@@ -7,9 +7,10 @@ public class LogHelper {
 
     public static void logDebug(String message, Throwable throwable){
 
+        logDebug(message, throwable, new Object[0]);
     }
     public static void logDebug(String message, Object... params){
-
+        logDebug(message, null, params);
     }
 
     public static void logDebug(String message, Throwable throwable, Object... params){

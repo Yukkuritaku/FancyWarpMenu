@@ -20,12 +20,8 @@ public class Button {
                     ExtraCodecs.NON_NEGATIVE_FLOAT.fieldOf("width_percentage").forGetter(button -> button.widthPercentage)
                     ).apply(instance, Button::new)
     ).validate(Button::validate);
-
-    public static final ResourceLocation ICON = ResourceLocation.fromNamespaceAndPath(ModernWarpMenu.MOD_ID, "textures/gui/icon.png");
     /** Overlay texture rendered when mod is outdated */
     public static final ResourceLocation NOTIFICATION = ResourceLocation.fromNamespaceAndPath(ModernWarpMenu.MOD_ID, "textures/gui/notification.png");
-
-    public static final ResourceLocation REGULAR_WARP_MENU = ResourceLocation.fromNamespaceAndPath(ModernWarpMenu.MOD_ID, "textures/gui/regular_warp_menu.png");
 
 
     public final LayoutTexture texture;

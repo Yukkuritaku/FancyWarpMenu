@@ -1,6 +1,5 @@
 package com.github.yukkuritaku.modernwarpmenu.data.layout.texture;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.resources.ResourceLocation;

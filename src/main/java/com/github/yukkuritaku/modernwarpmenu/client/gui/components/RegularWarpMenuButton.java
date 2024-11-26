@@ -5,7 +5,6 @@ import com.github.yukkuritaku.modernwarpmenu.client.gui.screens.grid.ScaledGrid;
 import com.github.yukkuritaku.modernwarpmenu.client.gui.screens.transition.ScaleTransition;
 import com.github.yukkuritaku.modernwarpmenu.data.layout.Button;
 import com.github.yukkuritaku.modernwarpmenu.data.layout.Layout;
-import com.github.yukkuritaku.modernwarpmenu.data.layout.texture.LayoutTexture;
 import com.mojang.blaze3d.platform.Window;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;

@@ -6,12 +6,10 @@ import com.github.yukkuritaku.modernwarpmenu.client.gui.components.WarpButton;
 import com.github.yukkuritaku.modernwarpmenu.data.layout.Layout;
 import com.github.yukkuritaku.modernwarpmenu.data.skyblockconstants.menu.Menu;
 import com.github.yukkuritaku.modernwarpmenu.utils.GameCheckUtils;
-import com.mojang.logging.LogUtils;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ChestMenu;
-import org.slf4j.Logger;
 
 public class FastTravelScreen extends ModernWarpScreen{
 
