@@ -1,0 +1,42 @@
+{
+	"schemaVersion": 1,
+	"id": "modernwarpmenu",
+	"version": "${version}",
+	"name": "Modern Warp Menu",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Yukkuritaku (Port)"
+	],
+
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/modernwarpmenu/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"modmenu": [
+			"com.github.yukkuritaku.modernwarpmenu.compat.modmenu.ModMenuApiImpl"
+		],
+		"fabric-datagen": [
+			"com.github.yukkuritaku.modernwarpmenu.ModernWarpMenuDataGenerator"
+		],
+		"client": [
+			"com.github.yukkuritaku.modernwarpmenu.ModernWarpMenu"
+		]
+	},
+	"mixins": [
+		"modernwarpmenu.mixins.json"
+	],
+	"accessWidener": "modernwarpmenu.accesswidener",
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.21.3",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

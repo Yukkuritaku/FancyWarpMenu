@@ -1,0 +1,501 @@
+{
+  "type": "overworld",
+  "config_button": {
+    "grid_x": 60,
+    "grid_y": 31,
+    "texture": {
+      "height": 512,
+      "location": "modernwarpmenu:icon.png",
+      "width": 512
+    },
+    "width_percentage": 0.05
+  },
+  "island_list": [
+    {
+      "grid_x": 21,
+      "grid_y": 17,
+      "hover_effect_texture": {
+        "height": 674,
+        "location": "modernwarpmenu:textures/gui/islands/hub.png",
+        "width": 883
+      },
+      "name": "Hub",
+      "texture": {
+        "height": 674,
+        "location": "modernwarpmenu:textures/gui/islands/hub.png",
+        "width": 883
+      },
+      "warp_list": [
+        {
+          "command_name": "hub",
+          "display_name": "Spawn",
+          "grid_x": 19,
+          "grid_y": 11
+        },
+        {
+          "command_name": "museum",
+          "display_name": "Museum",
+          "grid_x": 17,
+          "grid_y": 25
+        },
+        {
+          "command_name": "crypts",
+          "display_name": "Crypts",
+          "grid_x": 3,
+          "grid_y": 15
+        },
+        {
+          "command_name": "wizard",
+          "display_name": "Wizard",
+          "grid_x": 26,
+          "grid_y": 18
+        },
+        {
+          "command_name": "da",
+          "display_name": "Sirius (DA)",
+          "grid_x": 37,
+          "grid_y": 28
+        },
+        {
+          "command_name": "castle",
+          "display_name": "Ruins",
+          "grid_x": 1,
+          "grid_y": 22
+        }
+      ],
+      "width_percentage": 0.35,
+      "z_level": 0
+    },
+    {
+      "grid_x": 22,
+      "grid_y": 1,
+      "hover_effect_texture": {
+        "height": 656,
+        "location": "modernwarpmenu:textures/gui/islands/crimson_isle.png",
+        "width": 926
+      },
+      "name": "Crimson Isle",
+      "texture": {
+        "height": 656,
+        "location": "modernwarpmenu:textures/gui/islands/crimson_isle.png",
+        "width": 926
+      },
+      "warp_list": [
+        {
+          "command_name": "isle",
+          "display_name": "Spawn",
+          "grid_x": 4,
+          "grid_y": 30
+        },
+        {
+          "command_name": "skull",
+          "display_name": "Skull",
+          "grid_x": 22,
+          "grid_y": 8
+        },
+        {
+          "command_name": "smold",
+          "display_name": "Tomb",
+          "grid_x": 27,
+          "grid_y": 14
+        },
+        {
+          "command_name": "wasteland",
+          "display_name": "Wasteland",
+          "grid_x": 12,
+          "grid_y": 12,
+          "tags": [
+            "bingo"
+          ]
+        },
+        {
+          "command_name": "dragontail",
+          "display_name": "Dragontail",
+          "grid_x": 11,
+          "grid_y": 2,
+          "tags": [
+            "bingo"
+          ]
+        },
+        {
+          "command_name": "scarleton",
+          "display_name": "Scarleton",
+          "grid_x": 21,
+          "grid_y": 24,
+          "tags": [
+            "bingo"
+          ]
+        }
+      ],
+      "width_percentage": 0.25,
+      "z_level": 2
+    },
+    {
+      "grid_x": 12,
+      "grid_y": 12,
+      "hover_effect_texture": {
+        "height": 522,
+        "location": "modernwarpmenu:textures/gui/islands/spiders_den.png",
+        "width": 790
+      },
+      "name": "Spider's Den",
+      "texture": {
+        "height": 522,
+        "location": "modernwarpmenu:textures/gui/islands/spiders_den.png",
+        "width": 790
+      },
+      "warp_list": [
+        {
+          "command_name": "spider",
+          "display_name": "Spawn",
+          "grid_x": 23,
+          "grid_y": 23
+        },
+        {
+          "command_name": "top",
+          "display_name": "Top",
+          "grid_x": 31,
+          "grid_y": 1
+        },
+        {
+          "command_name": "arachne",
+          "display_name": "Arachne",
+          "grid_x": 6,
+          "grid_y": 16
+        }
+      ],
+      "width_percentage": 0.175,
+      "z_level": 1
+    },
+    {
+      "grid_x": 1,
+      "grid_y": 1,
+      "hover_effect_texture": {
+        "height": 667,
+        "location": "modernwarpmenu:textures/gui/islands/end.png",
+        "width": 707
+      },
+      "name": "The End",
+      "texture": {
+        "height": 667,
+        "location": "modernwarpmenu:textures/gui/islands/end.png",
+        "width": 707
+      },
+      "warp_list": [
+        {
+          "command_name": "end",
+          "display_name": "Spawn",
+          "grid_x": 26,
+          "grid_y": 20
+        },
+        {
+          "command_name": "drag",
+          "display_name": "Nest",
+          "grid_x": 11,
+          "grid_y": 32
+        },
+        {
+          "command_name": "void",
+          "display_name": "Void",
+          "grid_x": 24,
+          "grid_y": 30
+        }
+      ],
+      "width_percentage": 0.2,
+      "z_level": 2
+    },
+    {
+      "grid_x": 36,
+      "grid_y": 9,
+      "hover_effect_texture": {
+        "height": 493,
+        "location": "modernwarpmenu:textures/gui/islands/gold_mine.png",
+        "width": 464
+      },
+      "name": "Gold Mine",
+      "texture": {
+        "height": 493,
+        "location": "modernwarpmenu:textures/gui/islands/gold_mine.png",
+        "width": 464
+      },
+      "warp_list": [
+        {
+          "command_name": "gold",
+          "display_name": "Spawn",
+          "grid_x": 8,
+          "grid_y": 20
+        }
+      ],
+      "width_percentage": 0.1,
+      "z_level": 1
+    },
+    {
+      "grid_x": 41,
+      "grid_y": 2,
+      "hover_effect_texture": {
+        "height": 509,
+        "location": "modernwarpmenu:textures/gui/islands/deep_caverns.png",
+        "width": 397
+      },
+      "name": "Deep Caverns",
+      "texture": {
+        "height": 509,
+        "location": "modernwarpmenu:textures/gui/islands/deep_caverns.png",
+        "width": 397
+      },
+      "warp_list": [
+        {
+          "command_name": "deep",
+          "display_name": "Spawn",
+          "grid_x": 5,
+          "grid_y": 21
+        },
+        {
+          "command_name": "dwarves",
+          "display_name": "Dwarven\nMines",
+          "grid_x": 32,
+          "grid_y": 12
+        },
+        {
+          "command_name": "forge",
+          "display_name": "Forge",
+          "grid_x": 17,
+          "grid_y": 5
+        },
+        {
+          "command_name": "ch",
+          "display_name": "Hollows",
+          "grid_x": 31,
+          "grid_y": 26
+        },
+        {
+          "command_name": "nucleus",
+          "display_name": "Nucleus",
+          "grid_x": 18,
+          "grid_y": 30
+        }
+      ],
+      "width_percentage": 0.12,
+      "z_level": 2
+    },
+    {
+      "grid_x": 45,
+      "grid_y": 27,
+      "hover_effect_texture": {
+        "height": 488,
+        "location": "modernwarpmenu:textures/gui/islands/private_island.png",
+        "width": 414
+      },
+      "name": "Home",
+      "texture": {
+        "height": 488,
+        "location": "modernwarpmenu:textures/gui/islands/private_island.png",
+        "width": 414
+      },
+      "warp_list": [
+        {
+          "command_name": "home",
+          "display_name": "Spawn",
+          "grid_x": 3,
+          "grid_y": 3
+        }
+      ],
+      "width_percentage": 0.05,
+      "z_level": 1
+    },
+    {
+      "grid_x": 50,
+      "grid_y": 27,
+      "hover_effect_texture": {
+        "height": 569,
+        "location": "modernwarpmenu:textures/gui/islands/garden.png",
+        "width": 941
+      },
+      "name": "Garden",
+      "texture": {
+        "height": 569,
+        "location": "modernwarpmenu:textures/gui/islands/garden.png",
+        "width": 941
+      },
+      "warp_list": [
+        {
+          "command_name": "garden",
+          "display_name": "Spawn",
+          "grid_x": 10,
+          "grid_y": 8
+        }
+      ],
+      "width_percentage": 0.1,
+      "z_level": 2
+    },
+    {
+      "grid_x": 43,
+      "grid_y": 15,
+      "hover_effect_texture": {
+        "height": 1080,
+        "location": "modernwarpmenu:textures/gui/islands/barn.png",
+        "width": 1080
+      },
+      "name": "The Barn",
+      "texture": {
+        "height": 1080,
+        "location": "modernwarpmenu:textures/gui/islands/barn.png",
+        "width": 1080
+      },
+      "warp_list": [
+        {
+          "command_name": "barn",
+          "display_name": "Spawn",
+          "grid_x": 1,
+          "grid_y": 19
+        }
+      ],
+      "width_percentage": 0.11,
+      "z_level": 1
+    },
+    {
+      "grid_x": 50,
+      "grid_y": 7,
+      "hover_effect_texture": {
+        "height": 604,
+        "location": "modernwarpmenu:textures/gui/islands/mushroom_desert.png",
+        "width": 827
+      },
+      "name": "Mushroom Desert",
+      "texture": {
+        "height": 604,
+        "location": "modernwarpmenu:textures/gui/islands/mushroom_desert.png",
+        "width": 827
+      },
+      "warp_list": [
+        {
+          "command_name": "desert",
+          "display_name": "Spawn",
+          "grid_x": 14,
+          "grid_y": 29
+        },
+        {
+          "command_name": "trapper",
+          "display_name": "Trapper",
+          "grid_x": 12,
+          "grid_y": 8
+        }
+      ],
+      "width_percentage": 0.2,
+      "z_level": 2
+    },
+    {
+      "grid_x": 10,
+      "grid_y": 22,
+      "hover_effect_texture": {
+        "height": 560,
+        "location": "modernwarpmenu:textures/gui/islands/park.png",
+        "width": 537
+      },
+      "name": "The Park",
+      "texture": {
+        "height": 560,
+        "location": "modernwarpmenu:textures/gui/islands/park.png",
+        "width": 537
+      },
+      "warp_list": [
+        {
+          "command_name": "park",
+          "display_name": "Spawn",
+          "grid_x": 25,
+          "grid_y": 30
+        },
+        {
+          "command_name": "howl",
+          "display_name": "Cave",
+          "grid_x": 30,
+          "grid_y": 16
+        },
+        {
+          "command_name": "jungle",
+          "display_name": "Jungle",
+          "grid_x": 19,
+          "grid_y": 4
+        }
+      ],
+      "width_percentage": 0.15,
+      "z_level": 0
+    },
+    {
+      "grid_x": 2,
+      "grid_y": 16,
+      "hover_effect_texture": {
+        "height": 602,
+        "location": "modernwarpmenu:textures/gui/islands/jerrys_workshop.png",
+        "width": 890
+      },
+      "name": "Jerry's Workshop",
+      "texture": {
+        "height": 602,
+        "location": "modernwarpmenu:textures/gui/islands/jerrys_workshop.png",
+        "width": 890
+      },
+      "warp_list": [
+        {
+          "command_name": "jerry",
+          "display_name": "Jerry",
+          "grid_x": 22,
+          "grid_y": 16,
+          "tags": [
+            "jerry"
+          ]
+        }
+      ],
+      "width_percentage": 0.15,
+      "z_level": 2
+    },
+    {
+      "grid_x": 4,
+      "grid_y": 26,
+      "hover_effect_texture": {
+        "height": 512,
+        "location": "modernwarpmenu:textures/gui/islands/dungeon_hub.png",
+        "width": 256
+      },
+      "name": "Dungeon Hub",
+      "texture": {
+        "height": 512,
+        "location": "modernwarpmenu:textures/gui/islands/dungeon_hub.png",
+        "width": 256
+      },
+      "warp_list": [
+        {
+          "command_name": "dungeons",
+          "display_name": "Spawn",
+          "grid_x": 6,
+          "grid_y": 15
+        }
+      ],
+      "width_percentage": 0.03,
+      "z_level": 2
+    }
+  ],
+  "regular_warp_menu_button": {
+    "grid_x": 60,
+    "grid_y": 29,
+    "texture": {
+      "height": 64,
+      "location": "modernwarpmenu:textures/gui/regular_warp_menu.png",
+      "width": 128
+    },
+    "width_percentage": 0.05
+  },
+  "warp_icon": {
+    "hover_effect_texture": {
+      "height": 256,
+      "location": "modernwarpmenu:textures/gui/portal.png",
+      "width": 207
+    },
+    "texture": {
+      "height": 256,
+      "location": "modernwarpmenu:textures/gui/portal.png",
+      "width": 207
+    },
+    "width_percentage": 0.02
+  }
+}

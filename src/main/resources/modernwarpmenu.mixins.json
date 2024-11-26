@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "com.github.yukkuritaku.modernwarpmenu.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"KeyboardHandlerMixin",
+		"ScreenAccessor"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

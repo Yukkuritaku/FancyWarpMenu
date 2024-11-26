@@ -1,0 +1,74 @@
+{
+  "menu_matching": {
+    "fast_travel": [
+      {
+        "inventory_slot": 45,
+        "item_id": "minecraft:blaze_powder",
+        "item_name": "Island Browser"
+      },
+      {
+        "inventory_slot": 49,
+        "item_id": "minecraft:barrier",
+        "item_name": "Close"
+      },
+      {
+        "inventory_slot": 53,
+        "item_id_list": [
+          "minecraft:map",
+          "minecraft:filled_map"
+        ],
+        "item_name": "Paper Icons"
+      }
+    ],
+    "porhtal": [
+      {
+        "inventory_slot": 31,
+        "item_id": "minecraft:barrier",
+        "item_name": "Close"
+      }
+    ]
+  },
+  "skyblock_join_message": "",
+  "warp_command_variants": [
+    {
+      "type": "alias",
+      "command": "warp"
+    },
+    {
+      "type": "alias",
+      "command": "travel"
+    },
+    {
+      "type": "warp",
+      "command": "is"
+    },
+    {
+      "type": "warp",
+      "command": "hub"
+    },
+    {
+      "type": "warp",
+      "command": "warpforge"
+    },
+    {
+      "type": "warp",
+      "command": "savethejerrys"
+    },
+    {
+      "type": "warp",
+      "command": "garry"
+    }
+  ],
+  "warp_messages": {
+    "warp_fail_messages": {
+      "Couldn't warp you! Try again later. (NO_DESTINATION_FOUND)": "modernwarpmenu.errors.noDestination",
+      "Jerry's Workshop is only available during the Winter!": "modernwarpmenu.errors.notOpenYet",
+      "Unknown destination! Check the Fast Travel menu to view options!": "modernwarpmenu.errors.unknownDestination",
+      "You haven't unlocked this fast travel destination!": "modernwarpmenu.errors.notUnlocked",
+      "You need to have visited this island at least once before fast traveling to it!": "modernwarpmenu.errors.notVisited"
+    },
+    "warp_success_messages": [
+      "Warping..."
+    ]
+  }
+}

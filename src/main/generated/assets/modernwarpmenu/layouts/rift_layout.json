@@ -1,0 +1,93 @@
+{
+  "type": "rift",
+  "config_button": {
+    "grid_x": 60,
+    "grid_y": 31,
+    "texture": {
+      "height": 512,
+      "location": "modernwarpmenu:icon.png",
+      "width": 512
+    },
+    "width_percentage": 0.05
+  },
+  "island_list": [
+    {
+      "grid_x": 21,
+      "grid_y": 6,
+      "hover_effect_texture": {
+        "height": 1051,
+        "location": "modernwarpmenu:textures/gui/rift.png",
+        "width": 974
+      },
+      "name": "Rift",
+      "texture": {
+        "height": 1051,
+        "location": "modernwarpmenu:textures/gui/rift.png",
+        "width": 974
+      },
+      "warp_list": [
+        {
+          "display_name": "Wizard Tower",
+          "grid_x": 18,
+          "grid_y": 25,
+          "slot_index": 10
+        },
+        {
+          "display_name": "Lagoon Hut",
+          "grid_x": 8,
+          "grid_y": 23,
+          "slot_index": 11
+        },
+        {
+          "display_name": "Dreadfarm",
+          "grid_x": 18,
+          "grid_y": 11,
+          "slot_index": 12
+        },
+        {
+          "display_name": "Plaza",
+          "grid_x": 22,
+          "grid_y": 19,
+          "slot_index": 13
+        },
+        {
+          "display_name": "Colosseum",
+          "grid_x": 11,
+          "grid_y": 18,
+          "slot_index": 14
+        },
+        {
+          "display_name": "Stillgore Château",
+          "grid_x": 31,
+          "grid_y": 28,
+          "slot_index": 15
+        }
+      ],
+      "width_percentage": 0.35,
+      "z_level": 0
+    }
+  ],
+  "regular_warp_menu_button": {
+    "grid_x": 60,
+    "grid_y": 29,
+    "texture": {
+      "height": 64,
+      "location": "modernwarpmenu:textures/gui/regular_warp_menu.png",
+      "width": 128
+    },
+    "width_percentage": 0.05
+  },
+  "warp_icon": {
+    "hover_effect_texture": {
+      "height": 256,
+      "location": "modernwarpmenu:textures/gui/portal.png",
+      "width": 207
+    },
+    "texture": {
+      "height": 256,
+      "location": "modernwarpmenu:textures/gui/portal.png",
+      "width": 207
+    },
+    "width_percentage": 0.02
+  }
+}
