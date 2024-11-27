@@ -6,14 +6,15 @@ import com.github.yukkuritaku.modernwarpmenu.client.gui.screens.grid.ScaledGrid;
 import com.github.yukkuritaku.modernwarpmenu.data.layout.Island;
 import com.github.yukkuritaku.modernwarpmenu.data.layout.Layout;
 import com.github.yukkuritaku.modernwarpmenu.data.layout.Warp;
-import com.github.yukkuritaku.modernwarpmenu.data.skyblockconstants.menu.Menu;
 import com.github.yukkuritaku.modernwarpmenu.data.settings.SettingsManager;
+import com.github.yukkuritaku.modernwarpmenu.data.skyblockconstants.menu.Menu;
 import com.github.yukkuritaku.modernwarpmenu.listeners.InventoryChangeListener;
 import com.github.yukkuritaku.modernwarpmenu.mixin.ScreenAccessor;
 import com.github.yukkuritaku.modernwarpmenu.state.ModernWarpMenuState;
 import com.github.yukkuritaku.modernwarpmenu.utils.ChatUtils;
 import com.github.yukkuritaku.modernwarpmenu.utils.GameCheckUtils;
 import com.github.yukkuritaku.modernwarpmenu.utils.WarpVisibilityCheckUtils;
+import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.logging.LogUtils;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.ChatFormatting;
@@ -34,7 +35,6 @@ import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.Slot;
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 
 import java.awt.*;
@@ -44,7 +44,9 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+// TODO: Maybe selectable with keyboard?
 public class ModernWarpScreen extends CustomContainerScreen{
+
     private static final Logger LOGGER = LogUtils.getLogger();
     /** Delay in ms before the player can warp again if the last warp attempt failed */
     private static final long WARP_FAIL_COOL_DOWN = 500L;
@@ -195,7 +197,7 @@ public class ModernWarpScreen extends CustomContainerScreen{
                 if (this.menu.getCarried().isEmpty()) {
                     // Left click no shift
                     slotClicked(this.menu.slots.get(slotIndex), slotIndex,
-                            GLFW.GLFW_MOUSE_BUTTON_LEFT, ClickType.PICKUP);
+                            InputConstants.MOUSE_BUTTON_LEFT, ClickType.PICKUP);
                 } else {
                     onWarpFail(ModernWarpMenu.getFullLanguageKey("errors.mouseIsHoldingItem"));
                 }
@@ -363,7 +365,7 @@ public class ModernWarpScreen extends CustomContainerScreen{
              Don't send a C0EPacketClickWindow when clicking the config button while the custom UI is disabled
              A null check is required here as it's possible for clicks to occur before the button is initialized.
              */
-            if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT && this.configButton != null && this.configButton.isHoveredOrFocused()) {
+            if (button == InputConstants.MOUSE_BUTTON_LEFT && this.configButton != null && this.configButton.isHoveredOrFocused()) {
                 return this.configButton.mouseClicked(mouseX, mouseY, button);
             } else {
                 return super.mouseClicked(mouseX, mouseY, button);
@@ -437,7 +439,7 @@ public class ModernWarpScreen extends CustomContainerScreen{
             FabricLoader.getInstance().getModContainer(ModernWarpMenu.MOD_ID).ifPresent(modContainer -> {
                 String name = modContainer.getMetadata().getName();
                 String version = modContainer.getMetadata().getVersion().getFriendlyString();
-                guiGraphics.drawString(Minecraft.getInstance().font, name + " " + version, this.width / 2, this.height - 10, 14737632);
+                guiGraphics.drawCenteredString(Minecraft.getInstance().font, name + " " + version, this.width / 2, this.height - 10, 14737632);
             });
             // Shift to draw island grid instead of warp grid
             if (!hasShiftDown()) {
@@ -478,28 +480,50 @@ public class ModernWarpScreen extends CustomContainerScreen{
     protected boolean customUIKeyPressed(int keyCode, int scanCode, int modifiers) {
         if (guiInitException != null) return false;
         if (SettingsManager.get().debug.debugModeEnabled) {
-            if (keyCode == GLFW.GLFW_KEY_R) {
+            if (keyCode == InputConstants.KEY_R) {
                 if (hasShiftDown()) {
                     Minecraft.getInstance().reloadResourcePacks().thenAcceptAsync( v -> {
                         this.layout = ModernWarpMenuState.getLayoutForMenu(this.warpMenu);
                         init();
                     }, this.screenExecutor);
+                    return true;
                 }
-            } else if (keyCode == GLFW.GLFW_KEY_TAB) {
+            } else if (keyCode == InputConstants.KEY_TAB) {
                 SettingsManager.get().debug.showDebugOverlay = !SettingsManager.get().debug.showDebugOverlay;
                 SettingsManager.save();
-            } else if (keyCode == GLFW.GLFW_KEY_B) {
+                return true;
+            } else if (keyCode == InputConstants.KEY_B) {
                 SettingsManager.get().debug.drawBorders = !SettingsManager.get().debug.drawBorders;
                 SettingsManager.save();
+                return true;
             }
         }
-        return true;
+/*
+        FocusNavigationEvent navigationEvent = switch (keyCode) {
+            case InputConstants.KEY_TAB -> this.createTabEvent();
+            case InputConstants.KEY_RIGHT -> this.createArrowEvent(ScreenDirection.RIGHT);
+            case InputConstants.KEY_LEFT -> this.createArrowEvent(ScreenDirection.LEFT);
+            case InputConstants.KEY_DOWN -> this.createArrowEvent(ScreenDirection.DOWN);
+            case InputConstants.KEY_UP -> this.createArrowEvent(ScreenDirection.UP);
+            default -> null;
+        };
+        if (navigationEvent != null) {
+            ComponentPath componentPath = super.nextFocusPath(navigationEvent);
+            if (componentPath == null && navigationEvent instanceof FocusNavigationEvent.TabNavigation) {
+                this.clearFocus();
+                componentPath = super.nextFocusPath(navigationEvent);
+            }
+            if (componentPath != null) {
+                this.changeFocus(componentPath);
+            }
+        }*/
+        return false;
     }
 
     @Override
     protected boolean customUIMouseClicked(double mouseX, double mouseY, int button) {
         // Left click
-        if (button == GLFW.GLFW_MOUSE_BUTTON_LEFT) {
+        if (button == InputConstants.MOUSE_BUTTON_LEFT) {
             for (GuiEventListener listener : this.children()) {
                 if (listener instanceof CustomContainerButton) {
                     if (listener.mouseClicked(mouseX, mouseY, button)) {

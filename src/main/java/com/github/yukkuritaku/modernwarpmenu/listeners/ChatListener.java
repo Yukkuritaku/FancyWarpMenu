@@ -6,6 +6,7 @@ import com.github.yukkuritaku.modernwarpmenu.data.skyblockconstants.WarpCommandV
 import com.github.yukkuritaku.modernwarpmenu.data.settings.SettingsManager;
 import com.github.yukkuritaku.modernwarpmenu.state.ModernWarpMenuState;
 import com.github.yukkuritaku.modernwarpmenu.utils.ChatUtils;
+import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.fabric.api.client.message.v1.ClientReceiveMessageEvents;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenKeyboardEvents;
@@ -16,7 +17,6 @@ import net.minecraft.client.gui.font.TextFieldHelper;
 import net.minecraft.client.gui.screens.ChatScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
-import org.lwjgl.glfw.GLFW;
 
 import java.util.List;
 import java.util.Locale;
@@ -76,7 +76,7 @@ public class ChatListener {
         ScreenEvents.BEFORE_INIT.register((client, screen, scaledWidth, scaledHeight) -> {
             if (screen instanceof ChatScreen) {
                 ScreenKeyboardEvents.allowKeyPress(screen).register((chatScreen, key, scancode, modifiers) -> {
-                    if (key == GLFW.GLFW_KEY_ENTER || key == GLFW.GLFW_KEY_KP_ENTER){
+                    if (key == InputConstants.KEY_RETURN || key == InputConstants.KEY_NUMPADENTER){
                         this.chatMessageSendDetected = true;
                         return true;
                     }

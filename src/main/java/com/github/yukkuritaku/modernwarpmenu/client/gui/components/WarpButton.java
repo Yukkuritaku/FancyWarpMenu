@@ -7,7 +7,6 @@ import com.github.yukkuritaku.modernwarpmenu.data.layout.Warp;
 import com.github.yukkuritaku.modernwarpmenu.data.settings.SettingsManager;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
-import net.minecraft.util.ARGB;
 
 import java.awt.*;
 
@@ -57,11 +56,6 @@ public class WarpButton extends ScaleTransitionButton{
             }
             this.setZLevel(originalZ);
         }
-    }
-
-    @Override
-    protected boolean clicked(double mouseX, double mouseY) {
-        return super.clicked(mouseX, mouseY);
     }
 
     public String getWarpCommand() {

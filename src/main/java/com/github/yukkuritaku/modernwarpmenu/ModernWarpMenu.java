@@ -8,20 +8,19 @@ import com.github.yukkuritaku.modernwarpmenu.data.settings.SettingsManager;
 import com.github.yukkuritaku.modernwarpmenu.listeners.ChatListener;
 import com.github.yukkuritaku.modernwarpmenu.listeners.SkyBlockJoinListener;
 import com.github.yukkuritaku.modernwarpmenu.listeners.WarpMenuListener;
+import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.server.packs.PackType;
-import org.lwjgl.glfw.GLFW;
-
 public class ModernWarpMenu implements ClientModInitializer {
 
 	public static final String MOD_ID = "modernwarpmenu";
 	private static ModernWarpMenu instance;
 	private final KeyMapping keyOpenWarpMenu = KeyBindingHelper.registerKeyBinding(new KeyMapping("modernwarpmenu.key.openWarpMenu",
-			GLFW.GLFW_KEY_M, "modernwarpmenu.key.categories.modernWarpMenu"));
+			InputConstants.KEY_M, "modernwarpmenu.key.categories.modernWarpMenu"));
 
 	private final SkyBlockConstantsManager skyBlockConstantsManager = new SkyBlockConstantsManager();
 	private final LayoutManager layoutManager = new LayoutManager();

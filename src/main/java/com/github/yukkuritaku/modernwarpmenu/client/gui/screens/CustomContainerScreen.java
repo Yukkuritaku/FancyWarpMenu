@@ -3,18 +3,17 @@ package com.github.yukkuritaku.modernwarpmenu.client.gui.screens;
 import com.github.yukkuritaku.modernwarpmenu.client.gui.components.CustomContainerButton;
 import com.github.yukkuritaku.modernwarpmenu.client.gui.screens.grid.ScaledGrid;
 import com.github.yukkuritaku.modernwarpmenu.data.layout.Layout;
+import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.platform.Window;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.events.GuiEventListener;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.ContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ChestMenu;
-import org.lwjgl.glfw.GLFW;
 
 public abstract class CustomContainerScreen extends ContainerScreen {
 
@@ -113,7 +112,7 @@ public abstract class CustomContainerScreen extends ContainerScreen {
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (this.customUIInteractionEnabled){
-            if (keyCode == GLFW.GLFW_KEY_ESCAPE || Minecraft.getInstance().options.keyInventory.consumeClick()){
+            if (keyCode == InputConstants.KEY_ESCAPE || Minecraft.getInstance().options.keyInventory.matches(keyCode, scanCode)){
                 // Pass through close window key presses
                 return super.keyPressed(keyCode, scanCode, modifiers);
             }else {
@@ -143,7 +142,7 @@ public abstract class CustomContainerScreen extends ContainerScreen {
     @Override
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
         if (this.customUIInteractionEnabled){
-            if (this.selectedButton != null && button == GLFW.GLFW_MOUSE_BUTTON_LEFT){
+            if (this.selectedButton != null && button == InputConstants.MOUSE_BUTTON_LEFT){
                 boolean result = this.selectedButton.mouseReleased(mouseX, mouseY, button);
                 this.selectedButton = null;
                 return result;

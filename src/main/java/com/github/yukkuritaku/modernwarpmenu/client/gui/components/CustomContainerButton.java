@@ -44,19 +44,6 @@ public abstract class CustomContainerButton extends Button {
         return this.zLevel;
     }
 
-    /*@Override
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
-        if (this.visible) {
-            this.isHovered =
-                    mouseX >= this.getX()
-                    && mouseY >= this.getY()
-                    && mouseX < this.getX() + this.getWidth()
-                    && mouseY < this.getY() + this.getHeight();
-            this.renderWidget(guiGraphics, mouseX, mouseY, partialTick);
-            this.tooltip.refreshTooltipForNextRenderPass(this.isHovered(), this.isFocused(), this.getRectangle());
-        }
-    }*/
-
     /**
      * Disable the vanilla button rendering
      */
